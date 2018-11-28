@@ -1,6 +1,6 @@
 var changeVideoList = (videos) => ({
   type: 'CHANGE_VIDEO_LIST',
-  videos: videos
+  videoList: videos
 });
 
 export default changeVideoList;

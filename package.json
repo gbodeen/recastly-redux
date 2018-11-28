@@ -6,8 +6,8 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "test": "live-server --open=./SpecRunner.html --port=8081",
-    "start": "live-server",
+    "test": "live-server --open=./SpecRunner.html --port=8081 --cors",
+    "start": "live-server --cors",
     "build": "webpack -d --watch"
   },
   "dependencies": {
