@@ -2,6 +2,7 @@ import React from 'react';
 import Search from './../components/Search.js';
 import { connect } from 'react-redux';
 import handleVideoSearch from '../actions/search.js';
+import store from '../store/store.js';
 // var SearchContainer = () => { };
 
 //TODO: define a SearchContainer component which will hook up your action
@@ -11,12 +12,15 @@ import handleVideoSearch from '../actions/search.js';
 
 
 const mapStateToProps = (state, ownProps) => {
-    return state
+    return {};
+    // return {
+    //     handleSearchInputChange: () => store.dispatch(handleVideoSearch(this.state.value))
+    // };
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        handleSearchInputChange: () => dispatch(handleVideoSearch)
+        handleSearchInputChange: (q) => dispatch(handleVideoSearch(q))
     }
 }
 

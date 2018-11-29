@@ -8,37 +8,42 @@ import changeVideo from '../actions/currentVideo.js';
 import changeVideoList from '../actions/videoList.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 import store from '../store/store.js';
+import handleVideoSearch from '../actions/search.js';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      videos: [],
-      currentVideo: null
-    };
+    // this.state = {
+    //   videos: [],
+    //   currentVideo: null
+    // };
   }
 
   componentDidMount() {
     this.getYouTubeVideos('react tutorials');
+    // console.log('heck, even this one?');
   }
 
   handleVideoListEntryTitleClick(video) {
+    console.log('Did it get called?');
     this.setState({ currentVideo: video });
   }
 
   getYouTubeVideos(query) {
-    var options = {
-      key: this.props.API_KEY,
-      query: query
-    };
+    store.dispatch(handleVideoSearch(query));
+    // console.log('How about this one?');
+    // var options = {
+    //   key: this.props.API_KEY,
+    //   query: query
+    // };
 
-    this.props.searchYouTube(options, (videos) =>
-      this.setState({
-        videos: videos,
-        currentVideo: videos[0]
-      })
-    );
+    // this.props.searchYouTube(options, (videos) =>
+    //   this.setState({
+    //     videos: videos,
+    //     currentVideo: videos[0]
+    //   })
+    // );
   }
 
   //TODO: swap out the React components below for the container components
@@ -49,12 +54,12 @@ export default class App extends React.Component {
         <Nav handleSearchInputChange={this.getYouTubeVideos.bind(this)} />
         <div className="row">
           <div className="col-md-7">
-            <VideoPlayerContainer video={this.state.currentVideo} />
+            <VideoPlayerContainer video={store.getState().currentVideo} />
           </div>
           <div className="col-md-5">
             <VideoListContainer
-              handleVideoListEntryTitleClick={this.handleVideoListEntryTitleClick.bind(this)}
-              videos={this.state.videos}
+              handleVideoListEntryTitleClick={() => store.dispatch(changeVideo)}
+              videos={store.getState().videoList}
             />
           </div>
         </div>
