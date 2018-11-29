@@ -1,14 +1,10 @@
 import React from 'react';
-import Search from './Search.js';
 import SearchContainer from '../containers/SearchContainer.js';
-import handleVideoSearch from '../actions/search.js';
-//TODO: swap out the React components below for the container components
-//  you wrote in the 'containers' directory.
 
-var Nav = ({ handleSearchInputChange }) => (
+var Nav = () => (
   <nav className="navbar">
     <div className="col-md-6 col-md-offset-3">
-      <SearchContainer handleSearchInputChange={handleSearchInputChange} />
+      <SearchContainer />
     </div>
   </nav>
 );

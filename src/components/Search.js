@@ -4,7 +4,6 @@ import { debounce } from "debounce";
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    // props.query = '';
 
     this.state = {
       value: ''
@@ -12,19 +11,17 @@ class Search extends React.Component {
   }
 
   handleInputChange(e) {
-    // console.log(this.state);
-    // this.props.query = e.target.value;
     this.props.handleSearchInputChange(e.target.value);
     this.setState({
       value: e.target.value
     });
-
-
   }
 
   render() {
+    console.log('in Search.js render', this.props, this.state);
+
     return (
-      <div className="search-bar form-inline">
+      < div className="search-bar form-inline" >
         <input
           className="form-control"
           type="text"
@@ -34,7 +31,7 @@ class Search extends React.Component {
         <button className="btn hidden-sm-down">
           <span className="glyphicon glyphicon-search"></span>
         </button>
-      </div>
+      </div >
     );
   }
 }
