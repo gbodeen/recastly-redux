@@ -8,7 +8,7 @@ import handleVideoSearch from '../actions/search.js';
 var Nav = ({ handleSearchInputChange }) => (
   <nav className="navbar">
     <div className="col-md-6 col-md-offset-3">
-      <SearchContainer handleSearchInputChange={() => store.dispatch(handleVideoSearch)} />
+      <SearchContainer handleSearchInputChange={handleSearchInputChange} />
     </div>
   </nav>
 );
