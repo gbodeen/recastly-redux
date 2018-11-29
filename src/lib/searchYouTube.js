@@ -11,8 +11,9 @@ var searchYouTube = ({ key, query, max = 5 }, callback) => {
       if (callback) {
         callback(items);
       }
+      console.log('in the .done', items);
     })
-    .fail(obj => console.error(obj.error));
+    .fail(obj => console.error('search fail in searchYouTube.js', obj));
 };
 
 export default searchYouTube;

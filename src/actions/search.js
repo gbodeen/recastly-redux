@@ -9,9 +9,6 @@ var handleVideoSearch = (q) => {
   return (
     dispatch => {
       searchYouTube({ key: YOUTUBE_API_KEY, query: q }, (items) => {
-        // store.dispatch(() => changeVideo(items[0]));
-        // store.dispatch(() => changeVideoList(items));
-        // console.log(items);
         dispatch(changeVideo(items[0]));
         dispatch(changeVideoList(items));
       });

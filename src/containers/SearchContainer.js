@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
+        handleSearchInputChange: handleSearchChange
         //   onClick: () => {
         //     dispatch(handleVideoSearch(ownProps.q))
         //   }
